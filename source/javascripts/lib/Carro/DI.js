@@ -1,6 +1,7 @@
 Carro.DI = (function() {
   var dependencies = {
-    "locator": Carro.Locator.ArrayLocator
+    "locator": Carro.Locator.ArrayLocator,
+    "recommender": Carro.Recommender.ArrayRecommender
   };
 
   return {
