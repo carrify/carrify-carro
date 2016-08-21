@@ -1,4 +1,5 @@
 //=require 'lib/Carro.js'
+//=require 'lib/jquery-3.1.0.min.js'
 
 //=require 'lib/Carro/Locator/ArrayLocator.js'
 //=require 'lib/Carro/Recommender/ArrayRecommender.js'
