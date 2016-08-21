@@ -1,3 +1,5 @@
+Carro.Locator = Carro.Locator || {};
+
 /**
  * Locates the current position by cycling over an array of predefined values.
  * This locator should be used for test purposes only.
