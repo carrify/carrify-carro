@@ -19,7 +19,7 @@ Carro.Recommender.ArrayRecommender = (function() {
         data: "Hola bebes"
       }
     }],
-    [{
+    [{ // Multiple recommendations
       rank: 0.98,
       point: {
         radio: 2,
@@ -42,14 +42,14 @@ Carro.Recommender.ArrayRecommender = (function() {
       id: 1,
       data: "Hola bebes"
       }
-    }]  // Multiple recommendations
+    }]
   ];
   var current = -1;
 
   return {
-    getRecommendations: function(organizationId, clientId, latitude, longitude) {
+    getRecommendations: function(organizationId, clientId, latitude, longitude, callback) {
       current = (current + 1 < recommendations.length) ? current + 1 : 0;
-      return recommendations[current];
+      return callback(recommendations[current]);
     },
   };
 })();
