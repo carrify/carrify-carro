@@ -4,14 +4,12 @@ Carro.Recommender.ApiRecommender = (function() {
   return {
     getRecommendations: function(organizationId, clientId, latitude, longitude, callback) {
       $.ajax({
-        url: this._buildUrl(organizationId, clientId),
+        url: Carro.baseUrl + "/recommendations/"+ organizationId,
         type: "get",
-        data: {coord_x: latitude, coord_y: longitude},
+        data: {client_id: clientId, latitude: latitude, longitude: longitude, token: Carro.securityToken},
         success: function (data) { callback(data.recommendations); }
       });
-    },
-    _buildUrl: function(organizationId, clientId) {
-      return Carro.baseUrl + "/recommendations/"+ organizationId +"/"+ clientId;
     }
   };
+
 })();
