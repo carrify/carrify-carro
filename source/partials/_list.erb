@@ -1,0 +1,46 @@
+<div class="body-background">
+    <h1>
+        <img alt="" class="logo" src="images/logo.png"/>
+        <span class="carrify">carrify.tech</span>
+        <strong>CARRO</strong>
+        <strong class="motto">Cuando comprar es una nueva experiencia</strong>
+    </h1>
+    <section class="content-wrapper">
+        <div class="content">
+            <div class="row">
+                <div class="col-50">
+                    <div class="row">
+                        <div class="col-50 go-back c-drinks">
+                            <i class="material-icons">keyboard_arrow_left</i>
+                            <span class="column-icon sb-bistro-drinks"></span>
+                            <span class="column-text">Bebidas</span>
+                        </div>
+                        <%= partial('partials/ad_small', :locals => {
+                                :the_class => 'ad-water'
+                            }) %>
+                    </div>
+                    <div class="row">
+                        <%= partial('partials/ad_small', :locals => {
+                                :the_class => 'ad-coffee'
+                            }) %>
+                        <%= partial('partials/ad_small', :locals => {
+                                :the_class => 'ad-juice-1'
+                            }) %>
+                    </div>
+                    <div class="row">
+                        <%= partial('partials/ad_small', :locals => {
+                                :the_class => 'ad-wine'
+                            }) %>
+                        <%= partial('partials/ad_small', :locals => {
+                                :the_class => 'ad-juice-2'
+                            }) %>
+                    </div>
+                </div>
+                <div class="col-50">
+                    2
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="copyright">carrify.tech 2016</footer>
+</div>
