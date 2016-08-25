@@ -1,3 +1,4 @@
+//= require handlebars/handlebars.min.js
 //=require 'lib/jquery-3.1.0.min.js'
 
 //=require 'Carro/Carro.js'
