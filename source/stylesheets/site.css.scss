@@ -3,6 +3,8 @@
 @import "bistro";
 @import "constants";
 @import "colours";
+@import "basic";
+@import "detail";
 
 @import "ads";
 
@@ -104,6 +106,7 @@ h1 {
     margin: 0 auto;
     background-color: #fff;
     box-shadow: 0px 0px 7px #111;
+    position: relative;
 
     .row {
       width: 100%;

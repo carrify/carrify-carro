@@ -1,51 +1,29 @@
-.c-none {
+/* Background colour */
+
+.bc-none {
   background-color: #ccc;
 }
 
-.c-fruit {
-  $colour: map-get($col-colours, 'c-fruit');
-  background-color: $colour;
-  color: darken($colour, map-get($col-darken, 'c-fruit'));
+@each $name, $colour in $col-colours {
+  .bc-#{$name} {
+    background-color: $colour;
+    color: darken($colour, map-get($col-darken, $name));
+  }
 }
 
-.c-dairies {
-  $colour: map-get($col-colours, 'c-dairies');
-  background-color: $colour;
-  color: darken($colour, map-get($col-darken, 'c-dairies'));
+/* Background shadow */
+
+@each $name, $colour in $col-colours {
+  .bcs-#{$name} {
+    background-color: rgba(darken($colour, 50%), 0.2);
+    color: lighten($colour, 30%);
+  }
 }
 
-.c-bread {
-  $colour: map-get($col-colours, 'c-bread');
-  background-color: $colour;
-  color: darken($colour, map-get($col-darken, 'c-bread'));
-}
+/* Colour */
 
-.c-meat {
-  $colour: map-get($col-colours, 'c-meat');
-  background-color: $colour;
-  color: darken($colour, map-get($col-darken, 'c-meat'));
-}
-
-.c-fish {
-  $colour: map-get($col-colours, 'c-fish');
-  background-color: $colour;
-  color: darken($colour, map-get($col-darken, 'c-fish'));
-}
-
-.c-drinks {
-  $colour: map-get($col-colours, 'c-drinks');
-  background-color: $colour;
-  color: darken($colour, map-get($col-darken, 'c-drinks'));
-}
-
-.c-coffee {
-  $colour: map-get($col-colours, 'c-coffee');
-  background-color: $colour;
-  color: darken($colour, map-get($col-darken, 'c-coffee'));
-}
-
-.c-appliance {
-  $colour: map-get($col-colours, 'c-appliance');
-  background-color: $colour;
-  color: darken($colour, map-get($col-darken, 'c-appliance'));
+@each $name, $colour in $col-colours {
+  .c-#{$name} {
+    color: $colour;
+  }
 }
