@@ -44,3 +44,6 @@ configure :build do
 end
 
 activate :sprockets
+
+# Append bower_components
+sprockets.append_path File.join "#{root}", "bower_components"

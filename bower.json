@@ -1,0 +1,20 @@
+{
+  "name": "carrify-carro",
+  "homepage": "https://github.com/carrify/carrify-carro",
+  "authors": [
+    "Juan Castro <juan.castro@the-cocktail.com>"
+  ],
+  "description": "A client for carrify.tech API",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "handlebars": "^4.0.5"
+  }
+}
