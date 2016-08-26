@@ -11,9 +11,12 @@ title: "carrify.tech: CARRO"
     </h1>
     <section class="content-wrapper">
         <div class="content">
-          <%= partial('partials/detail', :locals => {
-                  :image => '../images/ads/juice_2.jpg'
-              }) %>
+          <%=
+         # partial('partials/detail', :locals => {
+        #      :image => '../images/ads/juice_2.jpg'
+          #})
+            partial('partials/home')
+           %>
         </div>
     </section>
     <footer class="copyright">carrify.tech 2016</footer>
