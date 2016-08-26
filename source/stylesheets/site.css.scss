@@ -1,11 +1,12 @@
 @charset "utf-8";
 @import "normalize";
 @import "bistro";
+@import "constants";
+@import "colours";
+@import "basic";
+@import "detail";
 
-$colour-main-background: #444;
-
-$col-colours: (#00796B, #43A047, #8BC34A, #FFEB3B, #C62828, #FF4081, #E040FB, #3F51B5);
-$col-darken: (10%, 20%, 25%, 32%, 20%, 30%, 35%, 20%);
+@import "ads";
 
 * {
   box-sizing: border-box;
@@ -105,6 +106,7 @@ h1 {
     margin: 0 auto;
     background-color: #fff;
     box-shadow: 0px 0px 7px #111;
+    position: relative;
 
     .row {
       width: 100%;
@@ -119,6 +121,10 @@ h1 {
       text-decoration: none;
       text-align: center;
       padding: 15px 0;
+
+      .row {
+        margin: -15px 0;
+      }
     }
 
     .col-25 {
@@ -141,73 +147,23 @@ h1 {
       text-transform: lowercase;
     }
 
-    .row:nth-child(2) {
-      @for $i from 0 to 4 {
-        $colour: nth($col-colours, $i + 1);
-        $darken: nth($col-darken, $i + 1);
-
-        [class^="col-"]:nth-child(#{$i + 1}) {
-          background-color: $colour;
-
-          .column-icon {
-            color: darken($colour, $darken);
-          }
-
-          .column-text {
-            color: darken($colour, $darken);
-          }
-
-          &:hover {
-            background-color: darken($colour, $darken);
-
-            .column-icon {
-              color: $colour;
-            }
-
-            .column-text {
-              color: $colour;
-            }
-          }
-        }
-      }
-    }
-
-    .row:nth-child(3) {
-      @for $i from 4 to length($col-colours) {
-        $colour: nth($col-colours, $i + 1);
-        $darken: nth($col-darken, $i + 1);
-
-        [class^="col-"]:nth-child(#{$i - 3}) {
-          background-color: $colour;
-
-          .column-icon {
-            color: darken($colour, $darken);
-          }
-
-          .column-text {
-            color: darken($colour, $darken);
-          }
-
-          &:hover {
-            background-color: darken($colour, $darken);
-
-            .column-icon {
-              color: $colour;
-            }
-
-            .column-text {
-              color: $colour;
-            }
-          }
-        }
-      }
-    }
-
     .advert {
       background-color: #444;
 
       &:nth-child(2) {
         background-color: #555;
+      }
+    }
+
+    .go-back {
+      position: relative;
+
+      i {
+        font-size: 80px;
+        position: absolute;
+        top: 50%;
+        left: -10px;
+        margin-top: -40px;
       }
     }
   }

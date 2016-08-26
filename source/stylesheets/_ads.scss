@@ -1,0 +1,68 @@
+/* To remove */
+
+.ad-water {
+  background-image: url('../images/ads/water.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.ad-wine {
+  background-image: url('../images/ads/wine.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.ad-coffee {
+  background-image: url('../images/ads/coffee.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.ad-juice-1 {
+  background-image: url('../images/ads/juice_1.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.ad-juice-2 {
+  background-image: url('../images/ads/juice_2.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* end of to remove */
+
+.ad-wrapper {
+  position: relative;
+  padding: 0;
+}
+
+.ad-content {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(darken(#FF4081, 50%), 0.8);
+  color: #eee;
+}
+
+.ad-small {
+  .ad-content {
+    padding: 15px;
+  }
+
+  .line-big {
+    font-size: 36px;
+    font-weight: 400;
+    line-height: 28px;
+    margin: 12px 0;
+  }
+
+  .line-small {
+    margin: 5px 0;
+    font-size: 18px;
+  }
+}
