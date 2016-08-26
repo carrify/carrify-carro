@@ -1,11 +1,11 @@
 <div class="row">
     <div class="col-50">
         <div class="row">
-            <div class="col-50 go-back bc-drinks">
+            <a href="#" class="col-50 go-back bc-{{category}}" data-link-home>
                 <i class="material-icons">keyboard_arrow_left</i>
-                <span class="column-icon sb-bistro-drinks"></span>
-                <span class="column-text">Bebidas</span>
-            </div>
+                <span class="column-icon {{getCategoryProperty category 'icon'}}"></span>
+                <span class="column-text">{{getCategoryProperty category 'description'}}</span>
+            </a>
             <%= partial('partials/ad_small', :locals => {
                     :the_class => 'ad-water'
                 }) %>

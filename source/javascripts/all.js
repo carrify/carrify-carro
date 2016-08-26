@@ -6,5 +6,6 @@
 //=require 'Carro/Recommender/ArrayRecommender.js'
 //=require 'Carro/Recommender/ApiRecommender.js'
 //=require 'Carro/DI.js'
+//=require 'Carro/Renderer/Renderer.js'
 
 //=require 'ready.js'

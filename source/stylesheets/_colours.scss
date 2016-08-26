@@ -9,6 +9,11 @@
     background-color: $colour;
     color: darken($colour, map-get($col-darken, $name));
   }
+
+  a.bc-#{$name}:hover {
+    background-color: darken($colour, map-get($col-darken, $name));
+    color: $colour;
+  }
 }
 
 /* Background shadow */
