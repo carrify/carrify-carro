@@ -1,5 +1,5 @@
 //= require handlebars/handlebars.min.js
-//=require 'lib/jquery-3.1.0.min.js'
+//=require 'jquery/dist/jquery.min.js'
 
 //=require 'Carro/Carro.js'
 //=require 'Carro/Locator/ArrayLocator.js'
