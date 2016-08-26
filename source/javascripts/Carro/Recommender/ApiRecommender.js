@@ -5,10 +5,6 @@ Carro.Recommender.ApiRecommender = (function() {
 
     getRecommendations: function(organizationId, clientId, latitude, longitude, callback) {
       var key = "recommendations:"+organizationId+":"+clientId+":"+latitude+":"+longitude+":"+Carro.securityToken;
-      var cached = localStorage.getItem(key);
-      if (cached !== null) {
-        return callback(cached);
-      }
       $.ajax({
         url: Carro.baseUrl + "/recommendations/"+ organizationId,
         type: "get",
@@ -16,6 +12,9 @@ Carro.Recommender.ApiRecommender = (function() {
         success: function (data) {
           localStorage.setItem(key, data);
           callback(data.recommendations);
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+          callback(localStorage.getItem(key));
         }
       });
     }
