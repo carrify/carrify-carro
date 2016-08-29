@@ -7,27 +7,44 @@
                 <span class="column-text">{{getCategoryProperty category 'description'}}</span>
             </a>
             <%= partial('partials/ad_small', :locals => {
-                    :the_class => 'ad-water'
+                    :the_class => 'ad-back-{{category}}-1'
                 }) %>
         </div>
         <div class="row">
             <%= partial('partials/ad_small', :locals => {
-                    :the_class => 'ad-coffee'
+                    :the_class => 'ad-back-{{category}}-2'
                 }) %>
             <%= partial('partials/ad_small', :locals => {
-                    :the_class => 'ad-juice-1'
+                    :the_class => 'ad-back-{{category}}-3'
                 }) %>
         </div>
         <div class="row">
             <%= partial('partials/ad_small', :locals => {
-                    :the_class => 'ad-wine'
+                    :the_class => 'ad-back-{{category}}-4'
                 }) %>
             <%= partial('partials/ad_small', :locals => {
-                    :the_class => 'ad-juice-2'
+                    :the_class => 'ad-back-{{category}}-5'
                 }) %>
         </div>
     </div>
-    <div class="col-50">
-        2
+    <div class="col-50 ad-list ad-back-{{category}}-6">
+      <div class="ad-list-content bds-{{category}}">
+        <div class="list-advert">
+          <a href="" class="list-advert-link" data-link-detail style="background-image:url('../images/ads/drinks_1.jpg');"></a>
+          Agua mineral
+        </div>
+        <div class="list-advert">
+          <a href="" class="list-advert-link" data-link-detail style="background-image:url('../images/ads/drinks_2.jpg');"></a>
+          Vinos de crianza
+        </div>
+        <div class="list-advert">
+          <a href="" class="list-advert-link" data-link-detail style="background-image:url('../images/ads/drinks_3.jpg');"></a>
+          Cafés arábigos
+        </div>
+        <div class="list-advert">
+          <a href="" class="list-advert-link" data-link-detail style="background-image:url('../images/ads/drinks_4.jpg');"></a>
+          Agua mineral
+        </div>
+      </div>
     </div>
 </div>

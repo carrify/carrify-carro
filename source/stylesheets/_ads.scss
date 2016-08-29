@@ -1,36 +1,10 @@
-/* To remove */
-
-.ad-water {
-  background-image: url('../images/ads/water.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
+@each $name, $colour in $col-colours {
+  @for $i from 1 through 7 {
+    .ad-back-#{$name}-#{$i} {
+      background-image: url('../images/ads/#{$name}_#{$i}.jpg');
+    }
+  }
 }
-
-.ad-wine {
-  background-image: url('../images/ads/wine.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.ad-coffee {
-  background-image: url('../images/ads/coffee.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.ad-juice-1 {
-  background-image: url('../images/ads/juice_1.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.ad-juice-2 {
-  background-image: url('../images/ads/juice_2.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-/* end of to remove */
 
 .ad-wrapper {
   position: relative;
@@ -58,6 +32,9 @@
 }
 
 .ad-small {
+  background-repeat: no-repeat;
+  background-size: cover;
+
   .ad-content {
     padding: 15px;
   }
@@ -73,4 +50,69 @@
     margin: 5px 0;
     font-size: 18px;
   }
+}
+
+/* Loading */
+
+.advert-loading {
+  width: 40px;
+  height: 40px;
+  margin: 100px auto;
+  background-color: #333;
+  position: relative;
+  top: -55px;
+
+  border-radius: 100%;
+  -webkit-animation: sk-scaleout 1.0s infinite ease-in-out;
+  animation: sk-scaleout 1.0s infinite ease-in-out;
+}
+
+@-webkit-keyframes sk-scaleout {
+  0% { -webkit-transform: scale(0) }
+  100% {
+    -webkit-transform: scale(1.0);
+    opacity: 0;
+  }
+}
+
+@keyframes sk-scaleout {
+  0% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  } 100% {
+    -webkit-transform: scale(1.0);
+    transform: scale(1.0);
+    opacity: 0;
+  }
+}
+
+/* Ad list */
+
+.ad-list {
+  background-color: #444;
+  height: 100% !important;
+  text-align: left !important;
+}
+
+.ad-list-content {
+  width: 100%;
+  height: calc(100% + 30px);
+  margin: -15px 0;
+  padding-top: 20px;
+}
+
+.list-advert {
+  padding: 10px 30px;
+  color: #ddd;
+}
+
+.list-advert-link {
+  display: inline-block;
+  width: 90px;
+  height: 90px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 50%;
+  margin-right: 20px;
+  vertical-align: middle;
 }

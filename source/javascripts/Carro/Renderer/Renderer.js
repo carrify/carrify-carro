@@ -35,6 +35,10 @@ Carro.Renderer = (function() {
         var value = category[property] || "";
 
         return new Handlebars.SafeString(value);
+      },
+      'printAd': function(category) {
+        var id = "1";
+        return '<div class="advert-loading" data-ad="' + id + '"></div>';
       }
     },
     'categories': {

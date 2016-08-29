@@ -25,6 +25,15 @@
   }
 }
 
+/* Background dark shadow */
+
+@each $name, $colour in $col-colours {
+  .bds-#{$name} {
+    background-color: rgba(darken($colour, map-get($col-darken, $name)), 0.8);
+    color: lighten($colour, 30%);
+  }
+}
+
 /* Colour */
 
 @each $name, $colour in $col-colours {
