@@ -45,9 +45,16 @@
   right: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(darken(#FF4081, 50%), 0.8);
   color: #eee;
   text-decoration: none;
+}
+
+@each $name, $colour in $col-colours {
+  .list-#{$name} {
+    .ad-content {
+      background-color: rgba(desaturate(darken($colour, map-get($col-darken, $name)), 30%), 0.8);
+    }
+  }
 }
 
 .ad-small {

@@ -16,11 +16,17 @@ Carro.Renderer = (function() {
         renderTemplate('home');
       },
       '[data-link-detail]': function() {
-        renderTemplate('detail');
+        var category = this.getAttribute('data-link-detail');
+        renderTemplate('detail', {
+          category: category
+        });
       },
       '[data-link-close]': function() {
         var templateFrom = this.getAttribute('data-template-from');
-        renderTemplate(templateFrom);
+        var category = this.getAttribute('data-category');
+        renderTemplate(templateFrom, {
+          category: category
+        });
       }
     },
     'helpers': {

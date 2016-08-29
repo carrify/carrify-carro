@@ -1,9 +1,9 @@
-<div class="detail" style="background-image:url('<%= image %>');">
+<div class="detail detail-{{category}}" style="background-image:url('<%= image %>');">
   <div class="detail-shadow">
     <p class="detail-icon">
-      <span class="sb-bistro-drinks"></span> <span class="detail-icon-text">Bebidas</span>
+      <span class="{{getCategoryProperty category 'icon'}}"></span> <span class="detail-icon-text">{{getCategoryProperty category 'description'}}</span>
     </p>
-    <a href="#" class="detail-close bc-drinks" data-link-close>
+    <a href="#" class="detail-close bc-{{category}}" data-link-close data-category="{{category}}">
       <i class="material-icons">close</i>
     </a>
     <section class="detail-content">
@@ -14,7 +14,7 @@
         en todos nuestros zumos naturales
       </p>
     </section>
-    <footer class="detail-footer bcs-drinks">
+    <footer class="detail-footer bcs-{{category}}">
       <div class="detail-footer-description">
         <p>Otras</p>
         <p>ofertas</p>
