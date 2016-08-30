@@ -5,6 +5,7 @@ Carro.Renderer = (function() {
     },
     'compiledTemplates': {},
     'runtime': {},
+    'ad_cache': {},
     'handlers': {
       '[data-link-list]': function() {
         var category = this.getAttribute('data-link-list');
@@ -35,10 +36,6 @@ Carro.Renderer = (function() {
         var value = category[property] || "";
 
         return new Handlebars.SafeString(value);
-      },
-      'printAd': function(category) {
-        var id = "1";
-        return '<div class="advert-loading" data-ad="' + id + '"></div>';
       }
     },
     'categories': {
@@ -104,6 +101,28 @@ Carro.Renderer = (function() {
 
   function home(data) {
     renderTemplate('home', data);
+
+    var ads = set.ad_cache[set.runtime.currentTemplate];
+
+    if (!ads) {
+      return;
+    }
+
+    var adsLength = ads.length;
+
+    if (ads.length < 1) {
+      return;
+    }
+
+    var ad_home_1 = document.getElementById('ad_home_1');
+    var ad_home_2 = document.getElementById('ad_home_2');
+
+    ad_home_1.innerHTML = ads[0].data;
+    ad_home_2.innerHTML = ads[1].data;
+  }
+
+  function isHome() {
+    return document.querySelector('[data-is-home]') !== null;
   }
 
   function manageLinks(previousTemplate) {
@@ -126,6 +145,24 @@ Carro.Renderer = (function() {
     }
   }
 
+  function printHomeAds(ads) {
+    var length = ads.length;
+
+    if (length < 1) {
+      return;
+    }
+
+    if (length < 2) {
+      ads.push(ads[0]);
+    }
+
+    set.ad_cache[set.runtime.currentTemplate] = ads;
+
+    if (isHome()) {
+      home();
+    }
+  }
+
   function registerHelpers() {
     for (var helper in set.helpers) {
       var helperFunction = set.helpers[helper];
@@ -140,6 +177,7 @@ Carro.Renderer = (function() {
   })();
 
   return {
-    'home': home
+    'home': home,
+    'printHomeAds': printHomeAds
   };
 })();

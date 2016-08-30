@@ -1,16 +1,18 @@
-<div class="row">
-    <a href="#" class="col-50 advert" data-link-detail>
-      {{{printAd 'home'}}}
-    </a>
-    <a href="#" class="col-50 advert" data-link-detail>
-      {{{printAd 'home'}}}
-    </a>
-</div>
-<div class="row">
-    {{#each set.categories}}
-    <a href="#" class="col-25 bc-{{@key}}" data-link-list="{{@key}}">
-        <span class="column-icon {{icon}}"></span>
-        <span class="column-text">{{description}}</span>
-    </a>
-    {{/each}}
+<div data-is-home>
+  <div class="row">
+      <a href="#" id="ad_home_1" class="col-50 advert" data-link-detail>
+        <%= partial('partials/ad_loading') %>
+      </a>
+      <a href="#" id="ad_home_2" class="col-50 advert" data-link-detail>
+        <%= partial('partials/ad_loading') %>
+      </a>
+  </div>
+  <div class="row">
+      {{#each set.categories}}
+      <a href="#" class="col-25 bc-{{@key}}" data-link-list="{{@key}}">
+          <span class="column-icon {{icon}}"></span>
+          <span class="column-text">{{description}}</span>
+      </a>
+      {{/each}}
+  </div>
 </div>
