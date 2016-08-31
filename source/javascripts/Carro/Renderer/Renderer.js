@@ -1,11 +1,12 @@
-Carro.Renderer = (function() {
+Carro.Renderer = Carro.Renderer || {};
+
+Carro.Renderer.Renderer = (function() {
   var set = {
     'ref': {
       'template_container': document.getElementById('template_container')
     },
     'compiledTemplates': {},
     'runtime': {},
-    'ad_cache': {},
     'handlers': {
       '[data-link-list]': function() {
         var category = this.getAttribute('data-link-list');
@@ -36,6 +37,22 @@ Carro.Renderer = (function() {
         var value = category[property] || "";
 
         return new Handlebars.SafeString(value);
+      },
+      'getAd': function(category, index) {
+        var id = guid();
+
+        var ad = Carro.Renderer.Cache.getByIndex(category, index, function (ad) {
+          var container = document.getElementById(id);
+
+          container.className = "";
+          container.innerHTML = !ad ? "" : ad.data;
+        });
+
+        if (!ad) {
+          return "<div id='" + id + "' class='advert-loading'></div>";
+        }
+
+        return ad.data;
       }
     },
     'categories': {
@@ -74,6 +91,17 @@ Carro.Renderer = (function() {
     }
   };
 
+  function guid() {
+    function s4() {
+      return Math.floor((1 + Math.random()) * 0x10000)
+        .toString(16)
+        .substring(1);
+    }
+
+    return 'id' + s4() + s4() + '-' + s4() + '-' + s4() + '-' +
+      s4() + '-' + s4() + s4() + s4();
+  }
+
   function compileTemplates() {
     var templates = document.querySelectorAll('[type="text/x-handlebars-template"]');
     var templatesLength = templates.length;
@@ -101,24 +129,6 @@ Carro.Renderer = (function() {
 
   function home(data) {
     renderTemplate('home', data);
-
-    var ads = set.ad_cache[set.runtime.currentTemplate];
-
-    if (!ads) {
-      return;
-    }
-
-    var adsLength = ads.length;
-
-    if (ads.length < 1) {
-      return;
-    }
-
-    var ad_home_1 = document.getElementById('ad_home_1');
-    var ad_home_2 = document.getElementById('ad_home_2');
-
-    ad_home_1.innerHTML = ads[0].data;
-    ad_home_2.innerHTML = ads[1].data;
   }
 
   function isHome() {
@@ -145,24 +155,6 @@ Carro.Renderer = (function() {
     }
   }
 
-  function printHomeAds(ads) {
-    var length = ads.length;
-
-    if (length < 1) {
-      return;
-    }
-
-    if (length < 2) {
-      ads.push(ads[0]);
-    }
-
-    set.ad_cache[set.runtime.currentTemplate] = ads;
-
-    if (isHome()) {
-      home();
-    }
-  }
-
   function registerHelpers() {
     for (var helper in set.helpers) {
       var helperFunction = set.helpers[helper];
@@ -174,10 +166,12 @@ Carro.Renderer = (function() {
     registerHelpers();
     compileTemplates();
     home();
+
+    Carro.Renderer.Cache.loadCategories(set.categories);
   })();
 
   return {
     'home': home,
-    'printHomeAds': printHomeAds
+    'categories': set.categories
   };
 })();

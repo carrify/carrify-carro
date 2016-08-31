@@ -3,7 +3,8 @@ Carro.DI = (function() {
     "locator": Carro.Locator.ArrayLocator,
     //"recommender": Carro.Recommender.ArrayRecommender,
     "recommender": Carro.Recommender.ApiRecommender,
-    "renderer": Carro.Renderer
+    "renderer": Carro.Renderer.Renderer,
+    "cache": Carro.Renderer.Cache
   };
 
   return {
