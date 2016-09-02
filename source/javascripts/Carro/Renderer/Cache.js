@@ -21,7 +21,7 @@ Carro.Renderer.Cache = (function() {
     return {
       'execute': execute
     };
-  }
+  };
 
   function store(key, data) {
     set.cache[key] = data;
@@ -41,7 +41,7 @@ Carro.Renderer.Cache = (function() {
 
   function get(key, index, callback) {
     var cache = set.cache;
-
+console.log(cache)
     if (!cache || !cache[key]) {
       if (!set.callbacks[key]) {
         set.callbacks[key] = [];

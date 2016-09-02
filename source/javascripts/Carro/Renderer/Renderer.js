@@ -41,18 +41,20 @@ Carro.Renderer.Renderer = (function() {
       'getAd': function(category, index) {
         var id = guid();
 
-        var ad = Carro.Renderer.Cache.getByIndex(category, index, function (ad) {
+        var ad = Carro.Renderer.Cache.getByIndex(category, index, function (advert) {
           var container = document.getElementById(id);
 
+          var data = getAdInfo(advert, 'small');
+
           container.className = "";
-          container.innerHTML = !ad ? "" : ad.data;
+          container.innerHTML = !advert ? "" : data;
         });
 
         if (!ad) {
           return "<div id='" + id + "' class='advert-loading'></div>";
         }
 
-        return ad.data;
+        return getAdInfo(ad, 'small');
       }
     },
     'categories': {
@@ -90,6 +92,13 @@ Carro.Renderer.Renderer = (function() {
       }
     }
   };
+
+  function getAdInfo(advert, size) {
+    advert = advert || {};
+    var data = advert.data ? JSON.parse(advert.data) : {};
+
+    return data && data.content ? data.content[size] : "";
+  }
 
   function guid() {
     function s4() {
