@@ -2,6 +2,7 @@ Carro.Renderer = Carro.Renderer || {};
 
 Carro.Renderer.Cache = (function() {
   var set = {
+    'client_id': null,
     'ref': {
 
     },
@@ -41,7 +42,7 @@ Carro.Renderer.Cache = (function() {
 
   function get(key, index, callback) {
     var cache = set.cache;
-console.log(cache)
+
     if (!cache || !cache[key]) {
       if (!set.callbacks[key]) {
         set.callbacks[key] = [];
@@ -66,9 +67,9 @@ console.log(cache)
   }
 
   function getAdsByTag(tag) {
-    var clientId, userId = 1; // Hardcoded for now
+    var clientId = set.client_id;
 
-    Carro.Recommender.ApiRecommender.getAdsByTag(clientId, userId, tag, function (ads) {
+    Carro.Recommender.ApiRecommender.getAdsByTag(clientId, tag, function (ads) {
       store(tag, ads);
     });
   }
@@ -79,10 +80,34 @@ console.log(cache)
     }
   }
 
+  function loadClientId(callback) {
+    $.ajax({
+      url: Carro.baseUrl + "/client/new_client_id",
+      type: "post",
+      data: {
+        token: Carro.securityToken
+      },
+      success: function (data) {
+        var id = data.id
+        set.client_id = id;
+
+        Carro.Renderer.Renderer.init();
+
+        callback(id);
+      }
+    });
+  }
+
+  function getClientId() {
+    return set.client_id;
+  }
+
   return {
     'store': store,
     'getAll': getAll,
     'getByIndex': getByIndex,
-    'loadCategories': loadCategories
+    'loadCategories': loadCategories,
+    'loadClientId': loadClientId,
+    'getClientId': getClientId
   };
 })();

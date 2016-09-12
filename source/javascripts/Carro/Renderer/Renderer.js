@@ -171,16 +171,17 @@ Carro.Renderer.Renderer = (function() {
     }
   }
 
-  (function init() {
+  function init() {
     registerHelpers();
     compileTemplates();
     home();
 
     Carro.Renderer.Cache.loadCategories(set.categories);
-  })();
+  }
 
   return {
     'home': home,
-    'categories': set.categories
+    'categories': set.categories,
+    'init': init
   };
 })();

@@ -2,9 +2,9 @@ Carro.Recommender = Carro.Recommender || {};
 
 Carro.Recommender.ApiRecommender = (function() {
   return {
-    getRecommendations: function(organizationId, clientId, latitude, longitude, callback) {
+    getRecommendations: function(clientId, latitude, longitude, callback) {
       $.ajax({
-        url: Carro.baseUrl + "/recommendations/" + organizationId,
+        url: Carro.baseUrl + "/client/recommend",
         type: "get",
         data: {
           client_id: clientId,
@@ -17,9 +17,9 @@ Carro.Recommender.ApiRecommender = (function() {
         }
       });
     },
-    getAdsByTag: function(organizationId, clientId, tag, callback) {
+    getAdsByTag: function(clientId, tag, callback) {
       $.ajax({
-        url: Carro.baseUrl + "/recommendations/" + organizationId,
+        url: Carro.baseUrl + "/tags/" + tag,
         type: "get",
         data: {
           client_id: clientId,
