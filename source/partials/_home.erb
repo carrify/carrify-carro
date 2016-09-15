@@ -1,11 +1,7 @@
 <div data-is-home>
   <div class="row">
-      <a href="#" class="col-50 advert" data-link-detail>
-        {{{getAd 'home' 0}}}
-      </a>
-      <a href="#" class="col-50 advert" data-link-detail>
-        {{{getAd 'home' 1}}}
-      </a>
+    {{{getAd 'home' 0 'col-50 advert'}}}
+    {{{getAd 'home' 1 'col-50 advert'}}}
   </div>
   <div class="row">
       {{#each set.categories}}

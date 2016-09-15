@@ -59,20 +59,22 @@ h1 {
     position: relative;
     top: 6px;
     opacity: 0.5;
+    width: 200px;
   }
 
-  .carrify {
-
+  .logo-carro {
+    display: block;
+    position: relative;
+    top: -55px;
+    width: 150px;
+    margin: 0 auto;
   }
 
   strong {
     display: block;
-    text-align: center;
-    font-weight: 100;
-    font-size: 50pt;
-    color: #ccc;
     position: relative;
-    top: -35px;
+    top: -40px;
+    text-align: center;
   }
 
   .motto {

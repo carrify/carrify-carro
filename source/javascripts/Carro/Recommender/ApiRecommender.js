@@ -19,16 +19,15 @@ Carro.Recommender.ApiRecommender = (function() {
     },
     getAdsByTag: function(clientId, tag, callback) {
       $.ajax({
-        url: Carro.baseUrl + "/tags/" + tag,
+        url: Carro.baseUrl + "/locations/" + Carro.locationId + "/points",
         type: "get",
         data: {
           client_id: clientId,
-          latitude: 21.74493,
-          longitude: 87.85105,
-          token: Carro.securityToken
+          token: Carro.securityToken,
+          tags: tag
         },
         success: function (data) {
-          callback(data.recommendations);
+          callback(data.points);
         }
       });
     }

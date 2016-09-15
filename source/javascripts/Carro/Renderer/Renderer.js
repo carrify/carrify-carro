@@ -38,45 +38,54 @@ Carro.Renderer.Renderer = (function() {
 
         return new Handlebars.SafeString(value);
       },
-      'getAd': function(category, index) {
+      'getAd': function(category, index, theClass) {
         var id = guid();
 
         var ad = Carro.Renderer.Cache.getByIndex(category, index, function (advert) {
           var container = document.getElementById(id);
 
-          var data = getAdInfo(advert, 'small');
+          var data = getAdInfo(advert, 'small', category, theClass);
 
           container.className = "";
+
+          container.parentNode.setAttribute("data-link-id", advert.id);
           container.innerHTML = !advert ? "" : data;
+
+          manageLinks(set.runtime.currentTemplate);
         });
 
         if (!ad) {
           return "<div id='" + id + "' class='advert-loading'></div>";
         }
 
-        return getAdInfo(ad, 'small');
+        return getAdInfo(ad, 'small', category, theClass);
       }
     },
     'categories': {
       'fruit': {
         icon: 'sb-bistro-apple',
-        description: 'Fruta y verdura'
+        description: 'Fruta y verdura',
+        id: '55'
       },
       'dairies': {
         icon: 'sb-bistro-cone-icecream',
-        description: 'Lácteos'
+        description: 'Lácteos',
+        id: '51'
       },
       'bread': {
         icon: 'sb-bistro-pizza',
-        description: 'Panadería'
+        description: 'Panadería',
+        id: '54'
       },
       'meat': {
         icon: 'sb-bistro-steak',
-        description: 'Carnicería'
+        description: 'Carnicería',
+        id: '53'
       },
       'fish': {
         icon: 'sb-bistro-fish',
-        description: 'Pescadería'
+        description: 'Pescadería',
+        id: '52'
       },
       'drinks': {
         icon: 'sb-bistro-drinks',
@@ -93,11 +102,13 @@ Carro.Renderer.Renderer = (function() {
     }
   };
 
-  function getAdInfo(advert, size) {
+  function getAdInfo(advert, size, category, theClass) {
     advert = advert || {};
     var data = advert.data ? JSON.parse(advert.data) : {};
+    data = data && data.content ? data.content[size] : "";
+    category = category === 'home' ? '' : category
 
-    return data && data.content ? data.content[size] : "";
+    return '<a href="#" class="' + theClass + '" data-link-detail="' + category + '">' + data + '</a>';
   }
 
   function guid() {

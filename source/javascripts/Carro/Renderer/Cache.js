@@ -9,6 +9,9 @@ Carro.Renderer.Cache = (function() {
     'cache': {
 
     },
+    'adList': {
+
+    },
     'callbacks': {
 
     }
@@ -26,6 +29,13 @@ Carro.Renderer.Cache = (function() {
 
   function store(key, data) {
     set.cache[key] = data;
+
+    var length = data.length;
+
+    for (var i = 0; i < length; i++) {
+      var element = data[i];
+      set.adList[element.id] = element;
+    }
 
     if (set.callbacks[key]) {
       var callbacks = set.callbacks[key];
@@ -66,27 +76,34 @@ Carro.Renderer.Cache = (function() {
     return all[index % all.length];
   }
 
-  function getAdsByTag(tag) {
+  function getAdsByTag(tagId, tagKey) {
     var clientId = set.client_id;
 
-    Carro.Recommender.ApiRecommender.getAdsByTag(clientId, tag, function (ads) {
-      store(tag, ads);
+    Carro.Recommender.ApiRecommender.getAdsByTag(clientId, tagId, function (ads) {
+      store(tagKey, ads);
     });
   }
 
   function loadCategories(categories) {
     for (var category in categories) {
-      getAdsByTag(category);
+      var data = categories[category];
+
+      getAdsByTag(data.id, category);
     }
+  }
+
+  function getAd(id) {
+    return set.adList[id];
   }
 
   function loadClientId(callback) {
     $.ajax({
       url: Carro.baseUrl + "/client/new_client_id",
-      type: "post",
+      type: "POST",
       data: {
         token: Carro.securityToken
       },
+      dataType: "json",
       success: function (data) {
         var id = data.id
         set.client_id = id;
@@ -108,6 +125,7 @@ Carro.Renderer.Cache = (function() {
     'getByIndex': getByIndex,
     'loadCategories': loadCategories,
     'loadClientId': loadClientId,
-    'getClientId': getClientId
+    'getClientId': getClientId,
+    'getAd': getAd
   };
 })();
