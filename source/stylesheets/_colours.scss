@@ -9,6 +9,11 @@
     background-color: $colour;
     color: darken($colour, map-get($col-darken, $name));
   }
+
+  a.bc-#{$name}:hover {
+    background-color: darken($colour, map-get($col-darken, $name));
+    color: $colour;
+  }
 }
 
 /* Background shadow */
@@ -16,6 +21,15 @@
 @each $name, $colour in $col-colours {
   .bcs-#{$name} {
     background-color: rgba(darken($colour, 50%), 0.4);
+    color: lighten($colour, 30%);
+  }
+}
+
+/* Background dark shadow */
+
+@each $name, $colour in $col-colours {
+  .bds-#{$name} {
+    background-color: rgba(darken($colour, map-get($col-darken, $name)), 0.8);
     color: lighten($colour, 30%);
   }
 }

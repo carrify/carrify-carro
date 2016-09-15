@@ -4,20 +4,26 @@ title: "carrify.tech: CARRO"
 
 <div class="body-background">
     <h1>
-        <img alt="" class="logo" src="images/logo.png"/>
-        <span class="carrify">carrify.tech</span>
-        <strong>CARRO</strong>
+        <img alt="" class="logo" src="images/carrify.svg"/>
+        <img alt="" class="logo-carro" src="images/carro.svg"/>
         <strong class="motto">Cuando comprar es una nueva experiencia</strong>
     </h1>
     <section class="content-wrapper">
-        <div class="content">
-          <%=
-         # partial('partials/detail', :locals => {
-        #      :image => '../images/ads/juice_2.jpg'
-          #})
-            partial('partials/home')
-           %>
-        </div>
+        <div id="template_container" class="content"></div>
     </section>
     <footer class="copyright">carrify.tech 2016</footer>
 </div>
+
+<script id="home_template" type="text/x-handlebars-template">
+    <%= partial('partials/home') %>
+</script>
+
+<script id="list_template" type="text/x-handlebars-template">
+    <%= partial('partials/list') %>
+</script>
+
+<script id="detail_template" type="text/x-handlebars-template">
+    <%= partial('partials/detail', :locals => {
+          :image => '../images/ads/juice_2.jpg'
+    }) %>
+</script>

@@ -1,40 +1,14 @@
-<div class="row">
-    <a href="#" class="col-50 advert"></a>
-    <a href="#" class="col-50 advert"></a>
-</div>
-<div class="row">
-    <a href="#" class="col-25 bc-fruit">
-        <span class="column-icon sb-bistro-apple"></span>
-        <span class="column-text">Fruta y verdura</span>
-    </a>
-    <a href="#" class="col-25 bc-dairies">
-        <span class="column-icon sb-bistro-cone-icecream"></span>
-        <span class="column-text">Lacteos</span>
-    </a>
-    <a href="#" class="col-25 bc-bread">
-        <span class="column-icon sb-bistro-pizza"></span>
-        <span class="column-text">Panadería</span>
-    </a>
-    <a href="#" class="col-25 bc-meat">
-        <span class="column-icon sb-bistro-steak"></span>
-        <span class="column-text">Carnicería</span>
-    </a>
-</div>
-<div class="row">
-    <a href="#" class="col-25 bc-fish">
-        <span class="column-icon sb-bistro-fish"></span>
-        <span class="column-text">Pescadería</span>
-    </a>
-    <a href="#" class="col-25 bc-drinks">
-        <span class="column-icon sb-bistro-drinks"></span>
-        <span class="column-text">Bebidas</span>
-    </a>
-    <a href="#" class="col-25 bc-coffee">
-        <span class="column-icon sb-bistro-coffee"></span>
-        <span class="column-text">Té y café</span>
-    </a>
-    <a href="#" class="col-25 bc-appliance">
-        <span class="column-icon sb-bistro-blender"></span>
-        <span class="column-text">Electrodomésticos</span>
-    </a>
+<div data-is-home>
+  <div class="row">
+    {{{getAd 'home' 0 'col-50 advert'}}}
+    {{{getAd 'home' 1 'col-50 advert'}}}
+  </div>
+  <div class="row">
+      {{#each set.categories}}
+      <a href="#" class="col-25 bc-{{@key}}" data-link-list="{{@key}}">
+          <span class="column-icon {{icon}}"></span>
+          <span class="column-text">{{description}}</span>
+      </a>
+      {{/each}}
+  </div>
 </div>
