@@ -19,8 +19,13 @@ Carro.Renderer.Renderer = (function() {
       },
       '[data-link-detail]': function() {
         var category = this.getAttribute('data-link-detail');
+        var id = this.getAttribute('data-link-id');
+        var advert = Carro.Renderer.Cache.getAd(id);
+
         renderTemplate('detail', {
-          category: category
+          category: category,
+          advert: advert,
+          data: advert.data ? JSON.parse(advert.data) : {}
         });
       },
       '[data-link-close]': function() {
@@ -106,9 +111,9 @@ Carro.Renderer.Renderer = (function() {
     advert = advert || {};
     var data = advert.data ? JSON.parse(advert.data) : {};
     data = data && data.content ? data.content[size] : "";
-    category = category === 'home' ? '' : category
+    category = category === 'home' ? '' : category;
 
-    return '<a href="#" class="' + theClass + '" data-link-detail="' + category + '">' + data + '</a>';
+    return '<a href="#" class="' + theClass + '" data-link-detail="' + category + '" data-link-id="' + advert.id + '">' + data + '</a>';
   }
 
   function guid() {
