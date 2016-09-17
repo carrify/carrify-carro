@@ -5,7 +5,7 @@
 @import "colours";
 @import "basic";
 @import "detail";
-
+@import "scrollbar";
 @import "ads";
 
 * {
@@ -55,30 +55,20 @@ h1 {
   margin: 0;
   padding: 20px 30px;
 
-  .logo {
-    position: relative;
-    top: 6px;
-    opacity: 0.5;
-    width: 200px;
-  }
-
   .logo-carro {
     display: block;
-    position: relative;
-    top: -55px;
     width: 150px;
-    margin: 0 auto;
   }
 
   strong {
     display: block;
     position: relative;
-    top: -40px;
+    top: -70px;
     text-align: center;
   }
 
   .motto {
-    font-size: 24pt;
+    font-size: 28pt;
     font-family: 'League Script', cursive;
     color: #aaa;
   }
@@ -90,9 +80,11 @@ h1 {
   left: 0;
   right: 0;
   width: 100%;
-  padding: 15px 0;
+  padding: 25px 0;
   text-align: center;
   color: #aaa;
+  font-size: 22pt;
+  font-weight: 300;
 }
 
 .content-wrapper {
@@ -158,6 +150,7 @@ h1 {
       background-color: #444;
       background-repeat: no-repeat;
       background-size: cover;
+      background-position: center center;
       color: #fff;
 
       &:nth-child(2) {
@@ -177,6 +170,14 @@ h1 {
       }
     }
   }
+}
+
+.logo {
+  position: relative;
+  top: 12px;
+  opacity: 0.6;
+  width: 180px;
+  margin-right: 20px;
 }
 
 .list {

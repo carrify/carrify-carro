@@ -43,7 +43,8 @@ Carro.Renderer.Renderer = (function() {
           'data': {
             category: category,
             content: content
-          }
+          },
+          'ignoreTemplate': true
         });
       },
       '[data-link-close]': function() {

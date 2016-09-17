@@ -8,6 +8,7 @@
   height: 100%;
   background-size: cover;
   background-repeat: no-repeat;
+  background-position: center center;
 }
 
 .detail-shadow {
@@ -57,7 +58,7 @@
 }
 
 .detail-content {
-  padding: 70px 20px 20px 20px;
+  padding: 90px 20px 20px 20px;
   color: #fff;
   font-weight: 100;
 
@@ -161,6 +162,7 @@
       margin: 0 auto 5px auto;
       background-repeat: no-repeat;
       background-size: cover;
+      background-position: center center;
     }
   }
 
