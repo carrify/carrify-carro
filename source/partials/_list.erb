@@ -1,7 +1,7 @@
 <div class="row list list-{{category}}">
     <div class="col-50">
         <div class="row">
-            <a href="#" class="col-50 go-back bc-{{category}}" data-link-home>
+            <a href="javascript:void(0);" class="col-50 go-back bc-{{category}}" data-link-home>
                 <i class="material-icons">keyboard_arrow_left</i>
                 <span class="column-icon {{getCategoryProperty category 'icon'}}"></span>
                 <span class="column-text">{{getCategoryProperty category 'description'}}</span>
@@ -32,24 +32,9 @@
                 }) %>
         </div>
     </div>
-    <div class="col-50 ad-list ad-back-{{category}}-6">
-      <div class="ad-list-content bds-{{category}}">
-        <div class="list-advert">
-          <a href="" class="list-advert-link" data-link-detail style="background-image:url('../images/ads/drinks_1.jpg');"></a>
-          Agua mineral
-        </div>
-        <div class="list-advert">
-          <a href="" class="list-advert-link" data-link-detail style="background-image:url('../images/ads/drinks_2.jpg');"></a>
-          Vinos de crianza
-        </div>
-        <div class="list-advert">
-          <a href="" class="list-advert-link" data-link-detail style="background-image:url('../images/ads/drinks_3.jpg');"></a>
-          Cafés arábigos
-        </div>
-        <div class="list-advert">
-          <a href="" class="list-advert-link" data-link-detail style="background-image:url('../images/ads/drinks_4.jpg');"></a>
-          Agua mineral
-        </div>
+    <div class="col-50 ad-list ad-back-{{category}}-6" id="list_carousel_container" data-carousel="{{category}}" data-template="list_carousel">
+      <div class="ad-list-content bds-default">
+        <div class="advert-loading"></div>
       </div>
     </div>
 </div>

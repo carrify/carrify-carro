@@ -22,8 +22,16 @@ title: "carrify.tech: CARRO"
     <%= partial('partials/list') %>
 </script>
 
+<script id="list_carousel_template" type="text/x-handlebars-template">
+    <%= partial('partials/list_carousel') %>
+</script>
+
 <script id="detail_template" type="text/x-handlebars-template">
     <%= partial('partials/detail', :locals => {
           :image => '../images/ads/juice_2.jpg'
     }) %>
+</script>
+
+<script id="detail_carousel_template" type="text/x-handlebars-template">
+    <%= partial('partials/detail_carousel') %>
 </script>

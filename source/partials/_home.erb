@@ -1,11 +1,11 @@
 <div data-is-home>
-  <div class="row">
+  <div class="row fix-height">
     {{{getAd 'home' 0 'col-50 advert'}}}
     {{{getAd 'home' 1 'col-50 advert'}}}
   </div>
   <div class="row">
       {{#each set.categories}}
-      <a href="#" class="col-25 bc-{{@key}}" data-link-list="{{@key}}">
+      <a href="javascript:void(0);" class="col-25 bc-{{@key}}" data-link-list="{{@key}}">
           <span class="column-icon {{icon}}"></span>
           <span class="column-text">{{description}}</span>
       </a>

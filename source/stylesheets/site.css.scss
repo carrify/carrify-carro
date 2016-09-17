@@ -113,6 +113,11 @@ h1 {
     .row {
       width: 100%;
       clear: both;
+
+      &.fix-height {
+        height: 160px;
+        overflow: hidden;
+      }
     }
 
     [class^="col-"] {
@@ -151,6 +156,9 @@ h1 {
     .advert {
       display: block;
       background-color: #444;
+      background-repeat: no-repeat;
+      background-size: cover;
+      color: #fff;
 
       &:nth-child(2) {
         background-color: #555;
