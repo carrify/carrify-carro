@@ -27,6 +27,11 @@
 
 /* Background dark shadow */
 
+.bds-default {
+  background-color: rgba(#444, 0.8);
+  color: #aaa;
+}
+
 @each $name, $colour in $col-colours {
   .bds-#{$name} {
     background-color: rgba(darken($colour, map-get($col-darken, $name)), 0.8);
@@ -39,5 +44,9 @@
 @each $name, $colour in $col-colours {
   .c-#{$name} {
     color: $colour;
+  }
+
+  .cl-#{$name} {
+    color: lighten($colour, 30%);
   }
 }

@@ -1,38 +1,26 @@
-<div class="detail detail-{{category}}" style="background-image:url('<%= image %>');">
+<div class="detail detail-{{category}}" style="background-image:url('{{content.image}}');">
   <div class="detail-shadow">
     <p class="detail-icon">
       <span class="{{getCategoryProperty category 'icon'}}"></span> <span class="detail-icon-text">{{getCategoryProperty category 'description'}}</span>
     </p>
-    <a href="#" class="detail-close bc-{{category}}" data-link-close data-category="{{category}}">
+    <a href="javascript:void(0);" class="detail-close bc-{{category}}" data-link-close data-category="{{category}}">
       <i class="material-icons">close</i>
     </a>
     <section class="detail-content">
-      <p class="line-big text-center">
-        2 <i class="material-icons" style="font-size:80px;">close</i> 1
-      </p>
-      <p class="line-medium text-center">
-        en todos nuestros zumos naturales
-      </p>
+      {{{content.content.large}}}
     </section>
-    <footer class="detail-footer bcs-{{category}}">
-      <div class="detail-footer-description">
-        <p>Otras</p>
-        <p>ofertas</p>
-        <p>interesantes</p>
+    <footer class="detail-footer">
+      <div class="detail-footer-wrapper bcs-{{category}}">
+        <div class="detail-footer-description">
+          <p>Otras</p>
+          <p>ofertas</p>
+          <p>interesantes</p>
+        </div>
       </div>
-      <div class="detail-adverts">
-        <div class="detail-advert">
-          <a href="" class="detail-advert-link" data-link-detail style="background-image:url('../images/ads/drinks_1.jpg');"></a>
-          Agua mineral
+      <div class="detail-footer-carousel swiper-container">
+        <div class="detail-adverts swiper-wrapper" id="detail_carousel_container" data-carousel="{{category}}" data-template="detail_carousel">
         </div>
-        <div class="detail-advert">
-          <a href="" class="detail-advert-link" data-link-detail style="background-image:url('../images/ads/drinks_2.jpg');"></a>
-          Vinos de crianza
-        </div>
-        <div class="detail-advert">
-          <a href="" class="detail-advert-link" data-link-detail style="background-image:url('../images/ads/drinks_3.jpg');"></a>
-          Cafés arábigos
-        </div>
+      </div>
       </div>
     </footer>
   </div>

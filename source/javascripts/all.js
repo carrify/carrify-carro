@@ -1,5 +1,6 @@
-//= require handlebars/handlebars.min.js
+// = require handlebars/handlebars.min.js
 //=require 'jquery/dist/jquery.min.js'
+//=require 'Swiper/dist/js/swiper.min.js'
 
 //=require 'Carro/Carro.js'
 //=require 'Carro/Locator/ArrayLocator.js'

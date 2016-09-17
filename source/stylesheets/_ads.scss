@@ -32,10 +32,10 @@
 }
 
 .ad-small {
-  background-repeat: no-repeat;
-  background-size: cover;
-
   .ad-content {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
     padding: 15px;
   }
 
@@ -99,20 +99,34 @@
   height: calc(100% + 30px);
   margin: -15px 0;
   padding-top: 20px;
+  overflow-y: scroll;
 }
 
 .list-advert {
   padding: 10px 30px;
   color: #ddd;
+  overflow: hidden;
 }
 
 .list-advert-link {
-  display: inline-block;
-  width: 90px;
+  position: relative;
+  display: block;
+  width: 100%;
   height: 90px;
-  background-repeat: no-repeat;
-  background-size: cover;
-  border-radius: 50%;
-  margin-right: 20px;
-  vertical-align: middle;
+  padding: 10px 10px 10px 110px;
+  color: #fff;
+  text-decoration: none;
+
+  .list-advert-link-image {
+    display: block;
+    width: 90px;
+    height: 90px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
 }
