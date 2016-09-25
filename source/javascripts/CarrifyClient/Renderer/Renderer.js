@@ -61,7 +61,7 @@ CarrifyClient.Renderer.Renderer = (function() {
     },
     'helpers': {
       'getCategoryProperty': function(category, property) {
-        category = set.categories[category] || {};
+        category = CarrifyClient.categories[category] || {};
         var value = category[property] || "";
 
         return new Handlebars.SafeString(value);
@@ -91,45 +91,6 @@ CarrifyClient.Renderer.Renderer = (function() {
       },
       'short': function(text) {
         return text.substring(0, 20);
-      }
-    },
-    'categories': {
-      'fruit': {
-        icon: 'sb-bistro-apple',
-        description: 'Fruta y verdura',
-        id: '55'
-      },
-      'dairies': {
-        icon: 'sb-bistro-cone-icecream',
-        description: 'Lácteos',
-        id: '51'
-      },
-      'bread': {
-        icon: 'sb-bistro-pizza',
-        description: 'Panadería',
-        id: '54'
-      },
-      'meat': {
-        icon: 'sb-bistro-steak',
-        description: 'Carnicería',
-        id: '53'
-      },
-      'fish': {
-        icon: 'sb-bistro-fish',
-        description: 'Pescadería',
-        id: '52'
-      },
-      'drinks': {
-        icon: 'sb-bistro-drinks',
-        description: 'Bebidas'
-      },
-      'coffee': {
-        icon: 'sb-bistro-coffee',
-        description: 'Té y café'
-      },
-      'appliance': {
-        icon: 'sb-bistro-blender',
-        description: 'Electrodomésticos'
       }
     }
   };
@@ -241,6 +202,7 @@ CarrifyClient.Renderer.Renderer = (function() {
 
     data = data || {};
     data.set = set;
+    data.categories = CarrifyClient.categories;
 
     var fullTemplateName = templateName + '_template';
     var compiledTemplate = set.compiledTemplates[fullTemplateName];
@@ -255,6 +217,10 @@ CarrifyClient.Renderer.Renderer = (function() {
 
     if (callback) {
       callback();
+    }
+
+    if (CarrifyClient.Map) {
+      CarrifyClient.Map.init();
     }
   }
 
@@ -322,12 +288,12 @@ CarrifyClient.Renderer.Renderer = (function() {
     compileTemplates();
     home();
 
-    CarrifyClient.Renderer.Cache.loadCategories(set.categories);
+    CarrifyClient.Renderer.Cache.loadCategories(CarrifyClient.categories);
   }
 
   return {
     'home': home,
-    'categories': set.categories,
+    'categories': CarrifyClient.categories,
     'init': init
   };
 })();
