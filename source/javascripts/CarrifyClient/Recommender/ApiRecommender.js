@@ -1,16 +1,16 @@
-Carro.Recommender = Carro.Recommender || {};
+CarrifyClient.Recommender = CarrifyClient.Recommender || {};
 
-Carro.Recommender.ApiRecommender = (function() {
+CarrifyClient.Recommender.ApiRecommender = (function() {
   return {
     getRecommendations: function(clientId, latitude, longitude, callback) {
       $.ajax({
-        url: Carro.baseUrl + "/client/recommend",
+        url: CarrifyClient.baseUrl + "/client/recommend",
         type: "get",
         data: {
           client_id: clientId,
           latitude: latitude,
           longitude: longitude,
-          token: Carro.securityToken
+          token: CarrifyClient.securityToken
         },
         success: function (data) {
           callback(data.recommendations);
@@ -19,11 +19,11 @@ Carro.Recommender.ApiRecommender = (function() {
     },
     getAdsByTag: function(clientId, tag, callback) {
       $.ajax({
-        url: Carro.baseUrl + "/locations/" + Carro.locationId + "/points",
+        url: CarrifyClient.baseUrl + "/locations/" + CarrifyClient.locationId + "/points",
         type: "get",
         data: {
           client_id: clientId,
-          token: Carro.securityToken,
+          token: CarrifyClient.securityToken,
           tags: tag
         },
         success: function (data) {

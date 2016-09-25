@@ -1,9 +1,9 @@
-Carro.Recommender = Carro.Recommender || {};
+CarrifyClient.Recommender = CarrifyClient.Recommender || {};
 
 /**
  * Finds recommended offers based on the current location.
  */
-Carro.Recommender.ArrayRecommender = (function() {
+CarrifyClient.Recommender.ArrayRecommender = (function() {
 
   var recommendations = [
     [], // We may not receive any recommendations,

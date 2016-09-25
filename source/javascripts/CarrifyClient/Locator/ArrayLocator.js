@@ -1,10 +1,10 @@
-Carro.Locator = Carro.Locator || {};
+CarrifyClient.Locator = CarrifyClient.Locator || {};
 
 /**
  * Locates the current position by cycling over an array of predefined values.
  * This locator should be used for test purposes only.
  */
-Carro.Locator.ArrayLocator = (function() {
+CarrifyClient.Locator.ArrayLocator = (function() {
   var coordinates = [
     [-53.02530, -57.68003],
     [21.74493, 87.85105],

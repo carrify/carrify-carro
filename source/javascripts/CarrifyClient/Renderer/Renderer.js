@@ -1,6 +1,6 @@
-Carro.Renderer = Carro.Renderer || {};
+CarrifyClient.Renderer = CarrifyClient.Renderer || {};
 
-Carro.Renderer.Renderer = (function() {
+CarrifyClient.Renderer.Renderer = (function() {
   var set = {
     'ref': {
       'template_container': document.getElementById('template_container')
@@ -27,7 +27,7 @@ Carro.Renderer.Renderer = (function() {
         var category = this.getAttribute('data-link-detail');
 
         var id = this.getAttribute('data-link-id');
-        var data = Carro.Renderer.Cache.getAd(id);
+        var data = CarrifyClient.Renderer.Cache.getAd(id);
         content = data.data ? JSON.parse(data.data) : {};
 
         if (!category) {
@@ -69,7 +69,7 @@ Carro.Renderer.Renderer = (function() {
       'getAd': function(category, index, theClass) {
         var id = guid();
 
-        var ad = Carro.Renderer.Cache.getByIndex(category, index, function (advert) {
+        var ad = CarrifyClient.Renderer.Cache.getByIndex(category, index, function (advert) {
           var container = document.getElementById(id);
 
           var data = getAdInfo(advert, 'small', category, theClass);
@@ -289,7 +289,7 @@ Carro.Renderer.Renderer = (function() {
 
       carousel.removeAttribute('data-carousel'); // Prevent recursion
 
-      var adverts = Carro.Renderer.Cache.getAll(carouselCategory, function(adverts) {
+      var adverts = CarrifyClient.Renderer.Cache.getAll(carouselCategory, function(adverts) {
         fillCarousel(carouselCategory, template, adverts);
       });
 
@@ -322,7 +322,7 @@ Carro.Renderer.Renderer = (function() {
     compileTemplates();
     home();
 
-    Carro.Renderer.Cache.loadCategories(set.categories);
+    CarrifyClient.Renderer.Cache.loadCategories(set.categories);
   }
 
   return {

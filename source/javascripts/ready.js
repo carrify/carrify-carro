@@ -1,18 +1,18 @@
 $(function() {
-  var locator = Carro.DI.get("locator");
-  var recommender = Carro.DI.get("recommender");
-  var renderer = Carro.DI.get("renderer");
-  var cache = Carro.DI.get("cache");
+  var locator = CarrifyClient.DI.get("locator");
+  var recommender = CarrifyClient.DI.get("recommender");
+  var renderer = CarrifyClient.DI.get("renderer");
+  var cache = CarrifyClient.DI.get("cache");
 
-  var coords = Carro.DI.get("locator").getLocation();
+  var coords = CarrifyClient.DI.get("locator").getLocation();
 
   function getInfo(clientId) {
     recommender.getRecommendations(clientId, coords[0], coords[1], function (recommendations) {
-      Carro.Renderer.Cache.store('home', recommendations);
+      CarrifyClient.Renderer.Cache.store('home', recommendations);
     });
   }
 
-  Carro.Renderer.Cache.loadClientId(function(id) {
+  CarrifyClient.Renderer.Cache.loadClientId(function(id) {
     var clientId = id;
 
     setInterval(function() {
