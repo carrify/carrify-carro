@@ -3,6 +3,7 @@
 //=require 'Swiper/dist/js/swiper.min.js'
 
 //=require 'CarrifyClient/CarrifyClient.js'
+//=require 'CarrifyClient/Token.js'
 //=require 'CarrifyClient/Locator/ArrayLocator.js'
 //=require 'CarrifyClient/Recommender/ArrayRecommender.js'
 //=require 'CarrifyClient/Recommender/ApiRecommender.js'

@@ -1,44 +1,46 @@
 var  CarrifyClient = {
   baseUrl: "//nube.carrify.tech/api/v1",
-  securityToken: "e2769d6f-61ec-4da6-8bd0-fae1116f5d04", // I know this should not be public but...
-  locationId: 4,
+  locationId: 7,
   categories: {
       'fruit': {
         icon: 'sb-bistro-apple',
         description: 'Fruta y verdura',
-        id: '55'
+        id: '73'
       },
       'dairies': {
         icon: 'sb-bistro-cone-icecream',
         description: 'Lácteos',
-        id: '51'
+        id: '72'
       },
       'bread': {
         icon: 'sb-bistro-pizza',
         description: 'Panadería',
-        id: '54'
+        id: '74'
       },
       'meat': {
         icon: 'sb-bistro-steak',
         description: 'Carnicería',
-        id: '53'
+        id: '67'
       },
       'fish': {
         icon: 'sb-bistro-fish',
         description: 'Pescadería',
-        id: '52'
+        id: '68'
       },
       'drinks': {
         icon: 'sb-bistro-drinks',
-        description: 'Bebidas'
+        description: 'Bebidas',
+        id: '69'
       },
       'coffee': {
         icon: 'sb-bistro-coffee',
-        description: 'Té y café'
+        description: 'Té y café',
+        id: '70'
       },
       'appliance': {
         icon: 'sb-bistro-blender',
-        description: 'Electrodomésticos'
+        description: 'Electrodomésticos',
+        id: '71'
       }
 	}
 };

@@ -22,3 +22,5 @@
 
 # Ignore npm packages
 /node_modules
+
+Token.js
