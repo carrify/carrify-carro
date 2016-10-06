@@ -142,3 +142,9 @@
     left: 0;
   }
 }
+
+[data-is-home] {
+  .ad-content-wrapper {
+    padding: 20px 10px !important;
+  }
+}
