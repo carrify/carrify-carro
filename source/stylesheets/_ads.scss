@@ -40,7 +40,15 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
-    padding: 15px;
+
+    .ad-content-wrapper {
+      height: 100%;
+      padding: 15px 10px;
+
+      .title {
+        font-size: 1.2em;
+      }
+    }
   }
 
   .line-big {

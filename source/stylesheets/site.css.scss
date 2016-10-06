@@ -96,6 +96,10 @@ h1 {
   color: #aaa;
   font-size: 22pt;
   font-weight: 300;
+
+  @media only screen and (max-width: 801px) {
+    display: none;
+  }
 }
 
 .content-wrapper {
@@ -167,7 +171,9 @@ h1 {
       position: relative;
 
       .title {
-        font-size: 2em;
+        font-size: 1.5em;
+        line-height: 1.5em;
+        font-weight: 300;
       }
 
       .ad-content-wrapper {
@@ -176,7 +182,7 @@ h1 {
         bottom: 0;
         left: 0;
         right: 0;
-        background-color: rgba(#444, 0.7);
+        background-color: rgba(#444, 0.6);
         padding: 10px;
       }
 
@@ -187,6 +193,7 @@ h1 {
 
     .go-back {
       position: relative;
+      padding-top: 24px;
 
       i {
         font-size: 80px;
@@ -194,6 +201,10 @@ h1 {
         top: 50%;
         left: -10px;
         margin-top: -40px;
+      }
+
+      .column-icon {
+        font-size: 55pt;
       }
     }
   }
@@ -209,4 +220,8 @@ h1 {
 
 .list {
   height: 100%;
+}
+
+.title {
+  margin-top: 0;
 }
