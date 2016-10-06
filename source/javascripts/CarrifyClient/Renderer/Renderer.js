@@ -28,7 +28,11 @@ CarrifyClient.Renderer.Renderer = (function() {
 
         var id = this.getAttribute('data-link-id');
         var data = CarrifyClient.Renderer.Cache.getAd(id);
-        content = data.data ? JSON.parse(data.data) : {};
+        content = data.data || {};
+
+        if (typeof data.data === 'string') {
+          content = JSON.parse(data.data);
+        }
 
         if (!category) {
           category = data.tags && data.tags.length > 0 ? data.tags[0].name : null;
