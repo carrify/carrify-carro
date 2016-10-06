@@ -3,6 +3,10 @@
     .ad-back-#{$name}-#{$i} {
       background-image: url('../images/ads/#{$name}_#{$i}.jpg');
     }
+
+    .ad-content-wrapper.#{$name} {
+      background-color: rgba(darken($colour, 45%), 0.8) !important;
+    }
   }
 }
 
